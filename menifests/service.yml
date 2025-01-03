@@ -1,0 +1,15 @@
+---
+
+apiVersion: v1
+kind: Service
+metadata: 
+  name: nginx_svc
+spec:
+  type: NodePort
+  ports:
+    - name: nginx_port
+      selector:
+        name: nginx
+      port: 80
+      targetPort: 80
+
