@@ -1,0 +1,20 @@
+---
+
+apiVersion: argoproj.io/v1
+kind: Application
+metadata:
+  name: nginx
+  namespace: argocd  # Ensure this matches your Argo CD installation namespace
+spec:
+  destination:
+    server: 'https://kubernetes.default.svc'  # Target Kubernetes cluster
+    namespace: argocd  # Namespace where the application will be deployed
+  source:
+    repoURL: 'https://github.com/shalu-233/Learning.git'  # Your Git repository URL
+    targetRevision: main  # Git branch or tag to deploy
+    path: manifests/nginx  # Path to the application manifests within the repository
+  project: default  # Specify the project this application belongs to
+  syncPolicy:
+    automated:
+      prune: true  # Enable pruning of resources not defined in Git
+      selfHeal: true  # Automatically sync if the live state differs from the desired state
