@@ -4,8 +4,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata: 
   name: nginx
-  labels: 
-    env: dev
 spec: 
   replicas: 3
   selector:
