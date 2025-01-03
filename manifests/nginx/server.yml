@@ -5,7 +5,7 @@ kind: Service
 metadata: 
   name: nginx-svc
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: nginx
   ports:
