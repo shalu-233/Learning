@@ -9,7 +9,7 @@ spec:
   ports:
     - name: nginx-port
       selector:
-        env: dev
+        app: nginx
       port: 80
       targetPort: 80
 
